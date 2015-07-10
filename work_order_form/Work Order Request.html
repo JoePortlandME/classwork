@@ -1,0 +1,39 @@
+<html>
+<head>
+<link rel="stylesheet" href="jquery-ui.css" />
+<link rel="stylesheet" href="WorkOrder.css" />
+<script src="jquery-1.11.1.min.js"></script>
+<script src="jquery-ui.js"></script>
+<title>Work Order Request</title>
+<body>
+<form id="workOrder" name="workOrder" action="WorkOrder_Submit.jsp" onSubmit="return finalSubmit()" method="post">
+  <div class="content">
+    <h1>Work Order Request</h1>
+    Your Name: <select name="name" id="names"></select>
+    <br />
+    Today's Date: <input id="todayDate" name="todayDate" readonly>
+    <br />
+    Due Date: <input type="text" name="dueDate" id="datepicker" readonly>   
+    <br />
+	<br />
+    <h3 id="purchaseHeader" onClick="openForm(0, 'purchase')">Purchase</h3>
+	<div id="purchase"></div>
+    <h3 id="hireHeader" onClick="openForm(1, 'hire')">Hire</h3>
+	<div id="hire"></div>
+    <h3 id="travelHeader" onClick="openForm(2, 'travel')">Prepare Travel Request</h3>
+	<div id="travel"></div>
+    <h3 id="prepTEVHeader" onClick="openForm(3, 'TEV')">Prepare TEV</h3>
+    <div id="TEV"></div>
+    <h3 id="otherHeader" onClick="openForm(4, 'other')">Other</h3>
+    <div id="other"></div>
+	<br />
+      <button type="submit" id="submitForm">Submit Form</button>
+      <br />
+      <button type="button" onClick="location.reload();">Reset All</button>
+      <br />
+      <br />
+    <!-- end .content --></div>
+    <script src="workOrder.js"></script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,121 @@
+Common fields
+
+1. Requester Name; radio buttons with names of all the faculty and
+part time staff
+
+2. Today's date(read only, auto filled)
+
+3. Due date; text box; should accept date string in 
+
+m/d/y
+an
+
+m-d-y
+
+form
+
+where m just has to convert to an int from 1 to 12, d from 1 to 31,
+y can be 2 digits or four; should be error checked to be
+
+a. a valid date
+b. >= current date
+
+this text box and all others should have an independent "clear" button
+that erases it's content; when the user enters content, the string should
+be normalized to some form so that Laurie can easily read them;
+I'd say m/d/y with only 2 digits for the yr and no extraneous leading 0's
+
+There are 6 different kinds of request
+
+Purchase
+Hire
+Prepare Travel Request
+Prepare TEV
+Copy
+Other(as time goes on, we may come up with additional categories)
+
+Each of these will have its own form fields, but each collection of
+form fields should have a button "Clear all" button that would return its
+fields to their initial state.  Individual text boxes should have their
+own "clear" buttons just to their right so if something is wrong it can 
+be easily cleared.  this is important for a couple of reasons.
+
+We detail the different types as follows.
+
+Purchase
+
+Item Description
+Number of Items
+Vendor
+Project Number
+
+Hire
+
+Name of hiree
+Position title
+
+check boxes(radio buttons?) for Funding
+a. Student Work-study
+b. Student Dept/Grant Funded
+c. Temporary Salary
+d. Temporary Hourly
+e. Add Comp Salary
+f. Add Comp Hourly
+
+Prepare Travel Request
+
+(we need to think about this one carefully;)
+Location(is there a chance this would have multiple legs? how much detail do you
+need? to and from? date of travel or dates of trip?)
+Start date
+End date
+Purpose
+Attendees:(names or number?)
+Meal Estimate
+Lodging
+Local transportation estimate
+Other expenses estimate(and what they are?)
+Meals are (radio buttons):  Per Diem  Actual
+
+Prepare TEV
+this one needs work; faculty should be able to manually put the receipts in
+an envelope and mark the envelope to identify it
+
+Copy
+#of copies
+radio buttons for single sided or double sided
+document attached(we should allow multiple documents in a single request)
+
+Other
+Description; text area
+
+Submit request button- this will validate that the needed fields are entered
+with seemingly valid data(numbers are numbers, dates are valid dates, copy documents
+are attached, etc.) and generate a mail message to send to Laurie, with the data
+arranged according to her specifications.  It also cc's the sending faculty member, so
+they have clear validation that the mail was sent.  The software generates a request
+id for this request based on the requestor(first 5 letters of the name, say, plus the
+date, plus the time down to the ms to guarantee that it's unique, and includes the
+id with the request.
+
+If the mail is sent, an alert box comes up saying so and displays the id.
+
+Once the user closes the alert box the form is still up, and the user can generate
+more requests of the same type by clearing out some of the boxes.  this way a faculty
+member could quickly generate requests to hire several students.
+
+the user can always change the request type at the top of the form, and that will
+dynamically change what form fields are given.
+
+Main Issues/Concerns are
+
+1. all and only needed data are present and validated
+2. data entry is convenient for faculty(buttons and checkboxes instead of text boxes
+wherever possible)
+3. the email message has the data arranged to make it easy for Laurie to extract the data;
+probably an individual entry should be
+
+label  :  value
+
+with 2 blank lines between entries so cut and paste is easy.
+
